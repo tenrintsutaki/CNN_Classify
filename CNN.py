@@ -13,7 +13,7 @@ learning_rate = 0.001
 num_epochs = 10
 k_folds = 5
 
-# 定义数据预处理和数据集
+# 数据预处理和数据集
 data_transforms = transforms.Compose([
     transforms.Resize((256, 256)),
     transforms.ToTensor(), # 变换到 [0,1]
@@ -97,7 +97,7 @@ for fold, (train_idx, val_idx) in enumerate(kf.split(dataset)): # 对于每一�
 
         epoch_loss = running_loss / len(train_subsampler) # avg loss 累计
         epoch_acc = running_corrects.double() / len(train_subsampler) # acc 累计
-        print(f'Train Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
+        print(f'Epoch: {epoch} Train Loss: {epoch_loss:.4f} Acc: {epoch_acc:.4f}')
 
 
     model.eval() # 验证模型
